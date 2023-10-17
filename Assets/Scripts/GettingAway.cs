@@ -30,15 +30,39 @@ public class GettingAway : MonoBehaviour
 
     private void HandleGettingAway()
     {
-        if (player.GetComponent<PlayerController>().HasPowerUp &&
-            Utilities.CheckDistanceLess(this.transform.position, player.transform.position, detectionDistance))
+        if (Utilities.CheckDistanceLess(this.transform.position, player.transform.position, detectionDistance))
         {
             GetComponent<Renderer>().material = enemyMaterial2;
+            //GeettingAway();
+            GettingAwayApproach();
         }
         else
         {
             GetComponent<Renderer>().material = enemyMaterial1;
         }
+    }
+
+    private void GeettingAway()
+    {
+        //this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position*detectionDistance*-1, maxSpeed * Time.deltaTime);
+        this.transform.position =
+            Vector3.MoveTowards(this.transform.position, player.transform.position, -maxSpeed * Time.deltaTime);
+
+    }
+
+    private void GettingAwayApproach()
+    {
+        if (player.GetComponent<PlayerController>().HasPowerUp)
+        {
+            this.transform.position =
+                Vector3.MoveTowards(this.transform.position, player.transform.position, maxSpeed * Time.deltaTime);
+        }
+        else
+        {
+            this.transform.position =
+                Vector3.MoveTowards(this.transform.position, player.transform.position, -maxSpeed * Time.deltaTime);
+        }
+
     }
 
     private void OnDrawGizmos()

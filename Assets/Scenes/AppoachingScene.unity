@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac859ef3ae7ce8647a646a4bf4f018d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FOVinDEG: 70
+  FOVinDEG: 90
   detectionDistance: 8
   player: {fileID: 0}
   maxSpeed: 2

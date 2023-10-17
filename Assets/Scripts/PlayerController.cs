@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
         // Check if the player has picked up a power-up (you can implement this logic separately)
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            HasPowerUp = true;
+            //HasPowerUp = true;
+            HasPowerUp = !HasPowerUp;
             // Implement power-up behavior here
         }
     }

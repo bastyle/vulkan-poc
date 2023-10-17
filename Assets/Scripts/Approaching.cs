@@ -11,6 +11,9 @@ public class Approaching : MonoBehaviour
     public GameObject player;
     public float maxSpeed = 2; //2m/s 
 
+    public Material enemyMaterial1;
+    public Material enemyMaterial2;
+
     void Start()
     {
         cosOfFOVover2InRAD = Mathf.Cos(FOVinDEG / 2f * Mathf.Deg2Rad);
@@ -21,7 +24,7 @@ public class Approaching : MonoBehaviour
     void Update()
     {
         //
-        //DoChaseEnemy();
+        //DoApproach();
         HandleChaseEnemy();
     }
 
@@ -39,11 +42,16 @@ public class Approaching : MonoBehaviour
         {
             Debug.Log("CheckDistanceLess true");
             Debug.Log("See player true");
-            DoChaseEnemy();
+            DoApproach();
+            GetComponent<Renderer>().material = enemyMaterial2;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = enemyMaterial1;
         }
     }
 
-    private void DoChaseEnemy()
+    private void DoApproach()
     {
         this.transform.position =
             Vector3.MoveTowards(this.transform.position, player.transform.position, maxSpeed * Time.deltaTime);

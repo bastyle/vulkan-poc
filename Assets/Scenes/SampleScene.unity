@@ -237,6 +237,8 @@ MonoBehaviour:
   detectionDistance: 8
   player: {fileID: 0}
   maxSpeed: 2
+  enemyMaterial1: {fileID: 2100000, guid: a7a38c80d1d1c504486870fd3612bdac, type: 2}
+  enemyMaterial2: {fileID: 2100000, guid: 6319f8e741ec8b447b05037e5d080c99, type: 2}
 --- !u!1 &360622454
 GameObject:
   m_ObjectHideFlags: 0
